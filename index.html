@@ -6,6 +6,8 @@
     <title>AI Human Mind</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Custom CSS -->
     <style>
         body {
@@ -14,6 +16,9 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .navbar {
             background-color: rgba(255, 255, 255, 0.9);
@@ -25,19 +30,7 @@
             padding: 150px 0;
             text-align: center;
             color: #333;
-        }
-        .jumbotron h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .jumbotron p {
-            font-size: 1.2rem;
-            font-weight: 400;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            flex: 1;
         }
         .highlight {
             color: #ff7043;
@@ -47,9 +40,27 @@
             background-color: #333;
             color: #fff;
             padding: 20px 0;
+            margin-top: auto;
         }
         .footer p {
             margin-bottom: 0;
+        }
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+        }
+        .social-links li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .social-links li:last-child {
+            margin-right: 0;
+        }
+        .social-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -76,9 +87,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/company/ai-human-mind" target="_blank">LinkedIn</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -96,6 +104,12 @@
     <!-- Footer -->
     <footer class="footer text-center">
         <div class="container">
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/ai-human-mind/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
             <p>&copy; 2024 AI Human Mind. All Rights Reserved.</p>
         </div>
     </footer>
@@ -104,5 +118,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
