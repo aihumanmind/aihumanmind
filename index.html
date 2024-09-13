@@ -16,76 +16,399 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
+        
+        /* Navbar */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
         }
-        .jumbotron {
-            background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://www.denisonforum.org/wp-content/uploads/2023/05/artificial-intelligence-mind-reader-1120.jpg');
-            background-size: cover;
-            padding: 150px 0;
-            text-align: center;
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            color: #8121c8;
+        }
+
+        .navbar-brand img {
+            max-height: 50px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            padding: 0.5rem 1.5rem;
             color: #333;
-            flex: 1;
+            font-weight: 500;
         }
-        .highlight {
+
+        .navbar-nav .nav-link:hover {
             color: #ff7043;
-            font-weight: 700;
+            transition: color 0.3s ease;
         }
+
+        .navbar-toggler-icon {
+            height: 1em;
+        }
+
+        .navbar-toggler {
+            font-size: 1.75rem;
+        }
+        .navbar .container{
+            justify-content: center;
+        }
+
+        .navbar-nav {
+            align-items: center;
+        }
+
+        /* Jumbotron */
+        .jumbotron {
+            background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), 
+                              url('https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI_HUMAN_MIND-bg.png');
+            background-size: cover;
+            background-position: center;
+            height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        .jumbotron h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .jumbotron p.lead {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .jumbotron .btn {
+            font-size: 1.2rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            background-color: #ff7043;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .jumbotron .btn:hover {
+            background-color: #ff5733;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 100px 0; /* Increase padding for better visibility after scroll */
+            text-align: center;
+            scroll-margin-top: 100px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #666;
+        }
+
+        /* About Us Section */
+        #about {
+            background-color: #fff;
+            padding: 100px 0;
+        }
+
+        #about .about-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        #about .about-content .about-item {
+            flex: 1;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #about .about-content .about-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        #about .about-content .about-item i {
+            font-size: 3rem;
+            color: #ff7043;
+            margin-bottom: 15px;
+        }
+
+        #about .about-content .about-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        #about .about-content .about-item p {
+            color: #666;
+        }
+
+        /* Locations Section */
+        #locations {
+            background-color: #f3f4f6;
+            padding: 100px 0;
+        }
+
+        .location-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .location-card i {
+            font-size: 3rem;
+            color: #ff7043;
+            margin-bottom: 15px;
+        }
+
+        .location-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .location-card p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .location-card span {
+            display: block;
+            color: #333;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        #services {
+            background-color: #f9f9f9;
+        }
+
+        .service-card {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #ff7043;
+            margin-bottom: 1rem;
+        }
+
+        /* Team Section */
+        #team .team-member {
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #team .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .team-member h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .team-member p {
+            color: #666;
+        }
+
+        .team-section .row {
+            justify-content: center;
+        }
+
+        /* Footer */
         .footer {
             background-color: #333;
             color: #fff;
             padding: 20px 0;
-            margin-top: auto;
+            text-align: center;
         }
+
+        .footer ul {
+            padding: 0;
+            margin: 0 0 10px;
+        }
+
+        .footer ul li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .footer ul li a {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
         .footer p {
             margin-bottom: 0;
         }
-        .social-links {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 0;
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .jumbotron h1 {
+                font-size: 2.5rem;
+            }
+
+            .jumbotron p.lead {
+                font-size: 1.2rem;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 1rem;
+            }
+
+            .navbar-brand img {
+                max-height: 40px;
+            }
+
+            .section {
+                padding-top: 120px
+            }
+
+            .team-member img {
+                width: 120px;
+                height: 120px;
+            }
+
+            #about .about-content {
+                flex-direction: column;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .service-card, .location-card {
+                padding: 15px;
+            }
+
+            .footer ul li a {
+                font-size: 1.2rem;
+            }
         }
-        .social-links li {
-            display: inline-block;
-            margin-right: 10px;
-        }
-        .social-links li:last-child {
-            margin-right: 0;
-        }
-        .social-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
+
+        @media (max-width: 576px) {
+            .jumbotron h1 {
+                font-size: 2rem;
+            }
+
+            .jumbotron p.lead {
+                font-size: 1rem;
+            }
+
+            .navbar-brand img {
+                max-height: 35px;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .service-card, .location-card {
+                padding: 10px;
+            }
+
+            .team-member img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .footer ul li a {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">AI Human Mind</a>
+            <a class="navbar-brand" href="#">
+                <img src="https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI-HUMAN-MIND_logo.png" alt="AI Human Mind Logo"> <!-- Logo Image -->
+                AI Human Mind
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#locations">Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -93,11 +416,139 @@
     </nav>
 
     <!-- Jumbotron -->
-    <div class="jumbotron">
+    <div id="home" class="jumbotron">
         <div class="container">
-            <h1 class="display-4">Welcome to <span class="highlight">AI Human Mind</span></h1>
-            <p class="lead">Unlock the potential of <span class="highlight">artificial intelligence</span> to revolutionize the human mind.</p>
-            <p>Founded by <span class="highlight">Vivek Shiva</span>.</p>
+            <h1>AI Human Mind</h1>
+            <p class="lead">Unlock the potential of artificial intelligence to revolutionize the human mind.</p>
+            <a href="#about" class="btn btn-lg">Learn More</a>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div id="about" class="section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>AI Human Mind is a leading AI solutions provider, dedicated to harnessing the power of artificial intelligence to revolutionize industries and enhance human capabilities. Our mission is to empower businesses and individuals by integrating AI tools that deliver efficiency, innovation, and intelligence.</p>
+            <div class="about-content">
+                <div class="about-item">
+                    <i class="fas fa-brain"></i>
+                    <h4>Innovation in AI</h4>
+                    <p>We continuously innovate in the field of AI, developing cutting-edge technologies that push the boundaries of human potential.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-users-cog"></i>
+                    <h4>Customized Solutions</h4>
+                    <p>Our AI solutions are tailored to meet the specific needs of your business, ensuring maximum impact and value.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Advanced Technologies</h4>
+                    <p>We integrate advanced AI tools, including machine learning, deep learning, and natural language processing, to transform how businesses operate.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services" class="section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <i class="fas fa-comments"></i>
+                        <h4>AI-Powered Chatbots</h4>
+                        <p>We create AI-driven chatbots designed to provide seamless customer service for various industries, enhancing user experiences.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <i class="fas fa-globe"></i>
+                        <h4>AI-Generated Websites</h4>
+                        <p>Our AI-generated websites are built for efficiency and speed, helping businesses establish a powerful online presence effortlessly.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h4>AI Training and Consulting</h4>
+                        <p>We offer specialized training programs and consulting services to help your team embrace AI technologies and transform your business.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <i class="fas fa-people-carry"></i>
+                        <h4>AI Outsourcing</h4>
+                        <p>Our outsourcing solutions give businesses access to top AI talent, allowing you to scale your projects efficiently and effectively.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div id="team" class="section team-section">
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <div class="row justify-content-center">
+                <!-- Team Member -->
+                <div class="col-md-4 col-sm-6 team-member">
+                    <img src="https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/Vivek_Shiva.jpg" alt="Vivek Shiva" class="img-fluid">
+                    <h4>Vivek Shiva</h4>
+                    <p>CEO & Founder</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="col-md-4 col-sm-6 team-member">
+                    <img src="https://media.licdn.com/dms/image/v2/C5603AQGB-F22vzrNJA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1641530335586?e=1731542400&v=beta&t=Oj32D6NlxGB-AG8yE-d0wcNJbGMT6WxgOkDi_xxejhY" alt="Saikishore Bikumandla" class="img-fluid">
+                    <h4>Saikishore Bikumandla</h4>
+                    <p>Co-Founder & CTO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Locations Section -->
+    <div id="locations" class="section">
+        <div class="container">
+            <h2>Our Locations</h2>
+            <p>AI Human Mind operates globally with offices in key locations to serve clients across North America and Asia. Explore our offices below.</p>
+            <div class="row">
+                <!-- Vancouver Location -->
+                <div class="col-md-4">
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Vancouver, BC</h4>
+                        <p>Canada 🇨🇦</p>
+                        <span>Headquarters</span>
+                    </div>
+                </div>
+                <!-- Seattle Location -->
+                <div class="col-md-4">
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Seattle, Washington</h4>
+                        <p>USA 🇺🇸</p>
+                        <span>North America</span>
+                    </div>
+                </div>
+                <!-- Hyderabad Location -->
+                <div class="col-md-4">
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Hyderabad, Telangana</h4>
+                        <p>India 🇮🇳</p>
+                        <span>Asia-Pacific</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or want to know more about AI Human Mind, feel free to reach out via social media or contact us directly through our email at <a href="mailto:info@aihumanmind.com">info@aihumanmind.com</a>.</p>
         </div>
     </div>
 
@@ -118,7 +569,45 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Add smooth scrolling to all links
+            $(".nav-link, .btn").on('click', function(event) {
+    
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+    
+                    // Store hash
+                    var hash = this.hash;
+    
+                    // Calculate offset for fixed navbar
+                    var navbarHeight = $('.navbar').outerHeight();
+                    var extraOffset = 20; // This helps to prevent cutting off any content
+    
+                    // Close the navbar if it's open in mobile view
+                    if($('.navbar-toggler').attr('aria-expanded') === 'true') {
+                        $('.navbar-collapse').collapse('hide');
+                    }
+    
+                    // Using jQuery's animate() method to add smooth page scroll
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - navbarHeight - extraOffset // Adjust scroll position by navbar height and extra buffer
+                    }, 800, function(){
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                }
+            });
+    
+            // Ensure the navbar is properly collapsed after clicking a link on mobile
+            $('.navbar-nav>li>a').on('click', function(){
+                $('.navbar-collapse').collapse('hide');
+            });
+        });
+    </script>
+    
+    
 </body>
 </html>
