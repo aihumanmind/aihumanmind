@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,7 +112,7 @@
 
         /* Section Styling */
         .section {
-            padding: 100px 0; /* Increase padding for better visibility after scroll */
+            padding: 80px 0;
             text-align: center;
             scroll-margin-top: 100px;
         }
@@ -121,7 +120,7 @@
         .section h2 {
             font-size: 2.5rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .section p {
@@ -300,9 +299,64 @@
             justify-content: center;
         }
 
+        /* Enhanced Team Section */
+        #team .team-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px 24px;
+        }
+        #team .team-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(129,33,200,0.10);
+            padding: 36px 24px 28px 24px;
+            margin: 0 8px 16px 8px;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+        }
+        #team .team-card:hover {
+            box-shadow: 0 8px 32px rgba(129,33,200,0.16);
+            transform: translateY(-6px) scale(1.04);
+        }
+        #team .team-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            font-size: 2.5rem;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(129,33,200,0.10);
+        }
+        #team .team-card h4 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        #team .team-card p {
+            color: #666;
+            font-size: 1.08rem;
+        }
+        @media (max-width: 900px) {
+            #team .team-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            #team .team-card {
+                max-width: 95vw;
+            }
+        }
+
         /* Footer */
         .footer {
-            background-color: #333;
+            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
             color: #fff;
             padding: 20px 0;
             text-align: center;
@@ -320,87 +374,364 @@
 
         .footer ul li a {
             color: #fff;
-            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: #ffd6c1;
+            transform: scale(1.2) rotate(-8deg);
         }
 
         .footer p {
             margin-bottom: 0;
         }
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .jumbotron h1 {
-                font-size: 2.5rem;
-            }
-
-            .jumbotron p.lead {
-                font-size: 1.2rem;
-            }
-
-            .navbar-nav .nav-link {
-                font-size: 1rem;
-            }
-
-            .navbar-brand img {
-                max-height: 40px;
-            }
-
-            .section {
-                padding-top: 120px
-            }
-
-            .team-member img {
-                width: 120px;
-                height: 120px;
-            }
-
-            #about .about-content {
-                flex-direction: column;
-            }
-
-            .section h2 {
-                font-size: 2rem;
-            }
-
-            .service-card, .location-card {
-                padding: 15px;
-            }
-
-            .footer ul li a {
-                font-size: 1.2rem;
-            }
+        /* Back to Top Button */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 1050;
+            background: linear-gradient(135deg, #8121c8 0%, #ff7043 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+            box-shadow: 0 4px 16px rgba(129,33,200,0.15);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        #backToTop:hover {
+            background: linear-gradient(135deg, #ff7043 0%, #8121c8 100%);
+            transform: translateY(-4px) scale(1.08);
         }
 
-        @media (max-width: 576px) {
+        /* Animated Scroll Effects */
+        .animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+        }
+        .animate.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Navbar shadow and color on scroll */
+        .navbar.scrolled {
+            background-color: #fff !important;
+            box-shadow: 0 4px 24px rgba(129,33,200,0.08);
+        }
+
+        /* Card hover pop */
+        .service-card, .location-card, .team-member {
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        .service-card:hover, .location-card:hover, .team-member:hover {
+            transform: translateY(-12px) scale(1.04);
+            box-shadow: 0 16px 32px rgba(129,33,200,0.10);
+        }
+
+        /* Why AI-First Section improvements */
+        #why-ai {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        #why-ai h2 {
+            color: #8121c8;
+            font-weight: 700;
+        }
+        #why-ai .row > div {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(129,33,200,0.06);
+            padding: 32px 18px 24px 18px;
+            margin: 0 8px 16px 8px;
+            min-height: 260px;
+        }
+        #why-ai i {
+            margin-bottom: 10px;
+        }
+        /* Why AI-First Section - improved layout */
+        #why-ai .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px 24px;
+        }
+        #why-ai .ai-card {
+            flex: 1 1 320px;
+            max-width: 350px;
+            min-width: 260px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(129,33,200,0.08);
+            padding: 36px 24px 28px 24px;
+            margin: 0 8px 16px 8px;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        #why-ai .ai-card:hover {
+            box-shadow: 0 8px 32px rgba(129,33,200,0.13);
+            transform: translateY(-6px) scale(1.03);
+        }
+        #why-ai .ai-card i {
+            margin-bottom: 18px;
+            font-size: 2.7rem;
+        }
+        #why-ai .ai-card h4 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        #why-ai .ai-card p {
+            color: #666;
+            font-size: 1.08rem;
+        }
+        #why-ai h2 {
+            color: #8121c8;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 900px) {
+            #why-ai .row,
+            #case-studies .row,
+            #case-studies .case-studies-cards,
+            #ai-tech .ai-tech-cards,
+            #team .team-cards {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 20px 0 !important;
+            }
+            #why-ai .ai-card,
+            #case-studies .case-card,
+            #ai-tech .ai-tech-card,
+            #team .team-card {
+                max-width: 95vw !important;
+                min-width: 0 !important;
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .about-content {
+                flex-direction: column !important;
+                gap: 20px 0 !important;
+            }
+            .about-item {
+                min-width: 0 !important;
+                width: 100% !important;
+                max-width: 95vw !important;
+            }
+            .location-card {
+                max-width: 95vw !important;
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .service-card {
+                max-width: 95vw !important;
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .row > [class^='col-'] {
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            .section {
+                padding: 40px 0 !important;
+            }
+            .jumbotron {
+                height: auto !important;
+                padding: 60px 0 40px 0 !important;
+            }
+            .navbar {
+                padding: 8px 0 !important;
+            }
+        }
+        @media (max-width: 600px) {
             .jumbotron h1 {
-                font-size: 2rem;
+                font-size: 2.1rem !important;
             }
-
             .jumbotron p.lead {
-                font-size: 1rem;
+                font-size: 1.1rem !important;
             }
-
-            .navbar-brand img {
-                max-height: 35px;
+            .section h2 {
+                font-size: 1.5rem !important;
             }
-
-            .navbar-nav .nav-link {
-                font-size: 0.9rem;
-                padding: 0.4rem 1rem;
+            #team .team-icon {
+                width: 48px !important;
+                height: 48px !important;
             }
-
-            .service-card, .location-card {
-                padding: 10px;
+            #team .team-card {
+                padding: 18px 8px 16px 8px !important;
             }
-
-            .team-member img {
-                width: 100px;
-                height: 100px;
+            #why-ai .ai-card, #case-studies .case-card, #ai-tech .ai-tech-card {
+                padding: 18px 8px 16px 8px !important;
             }
-
-            .footer ul li a {
-                font-size: 1rem;
+        }
+        /* Ensure horizontal scroll never appears */
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        /* --- Responsive Card Decks and Cards --- */
+        .card-deck {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px 16px;
+        }
+        .card {
+            flex: 1 1 320px;
+            margin: 12px;
+            min-width: 260px;
+            max-width: 350px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.10);
+            border-radius: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(129,33,200,0.13);
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px 16px 0 0;
+        }
+        .card-body {
+            padding: 18px 16px 16px 16px;
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #8121c8;
+        }
+        .card-text {
+            font-size: 1rem;
+            color: #666;
+        }
+        @media (max-width: 1200px) {
+            .card-deck {
+                gap: 18px 8px;
             }
+            .card {
+                min-width: 220px;
+                max-width: 320px;
+            }
+        }
+        @media (max-width: 900px) {
+            .card-deck {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px 0;
+            }
+            .card {
+                min-width: 0;
+                max-width: 98vw;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .card {
+                padding: 0;
+                border-radius: 12px;
+            }
+            .card-body {
+                padding: 12px 8px 12px 8px;
+            }
+            .card-title {
+                font-size: 1.08rem;
+            }
+        }
+        /* --- General Responsive Improvements for All Sections --- */
+        @media (max-width: 900px) {
+            .section, #about, #locations, #services, #team, #case-studies, #ai-tech {
+                padding: 36px 0 !important;
+            }
+            .jumbotron {
+                height: auto !important;
+                padding: 48px 0 32px 0 !important;
+            }
+            .navbar {
+                padding: 8px 0 !important;
+            }
+            .about-content, #team .team-cards, #case-studies .case-studies-cards, #ai-tech .ai-tech-cards, #why-ai .row {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 18px 0 !important;
+            }
+            .about-item, #team .team-card, #case-studies .case-card, #ai-tech .ai-tech-card, #why-ai .ai-card, .location-card, .service-card {
+                max-width: 98vw !important;
+                min-width: 0 !important;
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .row > [class^='col-'] {
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
+        @media (max-width: 600px) {
+            .jumbotron h1 {
+                font-size: 2rem !important;
+            }
+            .jumbotron p.lead {
+                font-size: 1rem !important;
+            }
+            .section h2 {
+                font-size: 1.2rem !important;
+            }
+            #team .team-icon {
+                width: 44px !important;
+                height: 44px !important;
+            }
+            #team .team-card, #why-ai .ai-card, #case-studies .case-card, #ai-tech .ai-tech-card {
+                padding: 12px 4px 10px 4px !important;
+            }
+        }
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        /* Team Avatar Style */
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 18px;
+            box-shadow: 0 6px 24px 0 rgba(129,33,200,0.18), 0 1.5px 6px 0 rgba(255,112,67,0.10);
+            border: 4px solid #fff;
+            background: linear-gradient(135deg, #8121c8 0%, #ff7043 100%);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .team-card:hover .team-avatar {
+            transform: scale(1.08) rotate(-3deg);
+            box-shadow: 0 12px 32px 0 rgba(129,33,200,0.22), 0 2px 8px 0 rgba(255,112,67,0.13);
+            border-color: #ff7043;
         }
     </style>
 </head>
@@ -453,22 +784,22 @@
     </div>
 
     <!-- About Us Section -->
-    <div id="about" class="section">
+    <div id="about" class="section animate">
         <div class="container">
             <h2>About Us</h2>
             <p>AI Human Mind is a leading AI solutions provider, dedicated to harnessing the power of artificial intelligence to revolutionize industries and enhance human capabilities. Our mission is to empower businesses and individuals by integrating AI tools that deliver efficiency, innovation, and intelligence.</p>
             <div class="about-content">
-                <div class="about-item">
+                <div class="about-item animate">
                     <i class="fas fa-brain"></i>
                     <h4>Innovation in AI</h4>
                     <p>We continuously innovate in the field of AI, developing cutting-edge technologies that push the boundaries of human potential.</p>
                 </div>
-                <div class="about-item">
+                <div class="about-item animate">
                     <i class="fas fa-users-cog"></i>
                     <h4>Customized Solutions</h4>
                     <p>Our AI solutions are tailored to meet the specific needs of your business, ensuring maximum impact and value.</p>
                 </div>
-                <div class="about-item">
+                <div class="about-item animate">
                     <i class="fas fa-laptop-code"></i>
                     <h4>Advanced Technologies</h4>
                     <p>We integrate advanced AI tools, including machine learning, deep learning, and natural language processing, to transform how businesses operate.</p>
@@ -477,34 +808,168 @@
         </div>
     </div>
 
+    <!-- Why AI-First Section -->
+    <div id="why-ai" class="section animate" style="background: linear-gradient(120deg, #fff 0%, #e3f2fd 100%);">
+        <div class="container">
+            <h2>Why Go AI-First?</h2>
+            <div class="row">
+                <div class="ai-card">
+                    <i class="fas fa-rocket" style="color:#8121c8;"></i>
+                    <h4>Accelerate Innovation</h4>
+                    <p>AI enables rapid prototyping, smarter products, and faster go-to-market for your business.</p>
+                </div>
+                <div class="ai-card">
+                    <i class="fas fa-brain" style="color:#ff7043;"></i>
+                    <h4>Unlock Human Potential</h4>
+                    <p>Automate repetitive tasks and empower your team to focus on creativity and strategy.</p>
+                </div>
+                <div class="ai-card">
+                    <i class="fas fa-chart-line" style="color:#8121c8;"></i>
+                    <h4>Data-Driven Decisions</h4>
+                    <p>Leverage AI to gain actionable insights and make smarter, faster business decisions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Technologies Section -->
+    <div id="ai-tech" class="section animate">
+        <div class="container">
+            <h2>Our AI & App Technologies</h2>
+            <div class="row justify-content-center ai-tech-cards">
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <span>Python</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <span>TensorFlow</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <span>PyTorch</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <span>JavaScript</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <span>TypeScript</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <i class="fab fa-aws" style="display:none;color:#ff9900;font-size:2.2rem;"></i>
+                    <span>AWS AI</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <i class="fab fa-google" style="display:none;color:#4285F4;font-size:2.2rem;"></i>
+                    <span>GCP AI</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="iOS (Swift)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <span>iOS (Swift)</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Android (Kotlin)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <span>Android (Kotlin)</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <span>Flutter</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                    <span>React Native</span>
+                </div>
+                <div class="ai-tech-card animate">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="height:48px;width:48px;margin-bottom:14px;object-fit:contain;">
+                    <span>OpenAI</span>
+                </div>
+            </div>
+        </div>
+        <style>
+        /* AI Technologies Section Modern Flex Layout */
+        #ai-tech .ai-tech-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px 32px;
+            margin-top: 32px;
+        }
+        #ai-tech .ai-tech-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(129,33,200,0.08);
+            padding: 28px 18px 18px 18px;
+            min-width: 120px;
+            max-width: 140px;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transition: box-shadow 0.3s, transform 0.3s;
+            margin: 0 8px 16px 8px;
+        }
+        #ai-tech .ai-tech-card:hover {
+            box-shadow: 0 8px 32px rgba(129,33,200,0.13);
+            transform: translateY(-6px) scale(1.05);
+        }
+        #ai-tech .ai-tech-card img, #ai-tech .ai-tech-card i {
+            height: 48px;
+            width: 48px;
+            margin-bottom: 14px;
+            display: block;
+            object-fit: contain;
+        }
+        #ai-tech .ai-tech-card span {
+            font-size: 1.08rem;
+            font-weight: 600;
+            color: #8121c8;
+            text-align: center;
+        }
+        @media (max-width: 900px) {
+            #ai-tech .ai-tech-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            #ai-tech .ai-tech-card {
+                max-width: 95vw;
+            }
+        }
+        </style>
+    </div>
+
     <!-- Services Section -->
-    <div id="services" class="section">
+    <div id="services" class="section animate">
         <div class="container">
             <h2>Our Services</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="service-card">
+                    <div class="service-card animate">
                         <i class="fas fa-comments"></i>
                         <h4>AI-Powered Chatbots</h4>
                         <p>We create AI-driven chatbots designed to provide seamless customer service for various industries, enhancing user experiences.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="service-card">
+                    <div class="service-card animate">
                         <i class="fas fa-globe"></i>
                         <h4>AI-Generated Websites</h4>
                         <p>Our AI-generated websites are built for efficiency and speed, helping businesses establish a powerful online presence effortlessly.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="service-card">
+                    <div class="service-card animate">
                         <i class="fas fa-chalkboard-teacher"></i>
                         <h4>AI Training and Consulting</h4>
                         <p>We offer specialized training programs and consulting services to help your team embrace AI technologies and transform your business.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="service-card">
+                    <div class="service-card animate">
                         <i class="fas fa-people-carry"></i>
                         <h4>AI Outsourcing</h4>
                         <p>Our outsourcing solutions give businesses access to top AI talent, allowing you to scale your projects efficiently and effectively.</p>
@@ -514,48 +979,238 @@
         </div>
     </div>
 
-    <!-- Team Section -->
-    <div id="team" class="section team-section">
+    <!-- Case Studies Section -->
+    <div id="case-studies" class="section animate" style="background: linear-gradient(120deg, #f3e7fd 0%, #fff 100%);">
         <div class="container">
-            <h2>Meet the Team</h2>
-            <div class="row justify-content-center">
-                <!-- Team Member -->
-                <div class="col-md-4 col-sm-6 team-member">
-                    <img src="https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/Vivek_Shiva.jpg" alt="Vivek Shiva" class="img-fluid">
-                    <h4>Vivek Shiva</h4>
-                    <p>Founder & CEO</p>
+            <h2>AI in Action: Success Stories</h2>
+            <div class="row case-studies-cards">
+                <div class="case-card animate">
+                    <div style="height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+                        <i class="fas fa-comments" style="color:#8121c8;font-size:2.7rem;"></i>
+                    </div>
+                    <h5>Retail Chatbot</h5>
+                    <p>Deployed a GPT-powered chatbot for a retail client, reducing support costs by 40% and boosting customer satisfaction.</p>
+                    <div style="flex:1 1 auto;"></div>
+                    <span class="badge">AI Chatbot</span>
                 </div>
-                <!-- Team Member 2 -->
-                <div class="col-md-4 col-sm-6 team-member">
-                    <img src="https://media.licdn.com/dms/image/v2/C5603AQGB-F22vzrNJA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1641530335586?e=1731542400&v=beta&t=Oj32D6NlxGB-AG8yE-d0wcNJbGMT6WxgOkDi_xxejhY" alt="Saikishore" class="img-fluid">
-                    <h4>Saikishore</h4>
-                    <p>Co-Founder & CTO</p>
+                <div class="case-card animate">
+                    <div style="height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+                        <i class="fas fa-globe" style="color:#ff7043;font-size:2.7rem;"></i>
+                    </div>
+                    <h5>AI Website Builder</h5>
+                    <p>Launched an AI-driven website generator, enabling small businesses to go online 10x faster with zero coding.</p>
+                    <div style="flex:1 1 auto;"></div>
+                    <span class="badge">AI Web</span>
                 </div>
-                <!-- Team Member 3 -->
-                <div class="col-md-4 col-sm-6 team-member">
-                    <img src="https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/harsha.jpg" alt="Harsha" class="img-fluid">
-                    <h4>Harsha</h4>
-                    <p>Director of Product</p>
-                </div>
-                <!-- Team Member 4 -->
-                <div class="col-md-4 col-sm-6 team-member">
-                    <img src="https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/uday.jpg" alt="Udaykiran" class="img-fluid">
-                    <h4>Udaykiran</h4>
-                    <p>Director of Engineering</p>
+                <div class="case-card animate">
+                    <div style="height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+                        <i class="fas fa-chart-line" style="color:#8121c8;font-size:2.7rem;"></i>
+                    </div>
+                    <h5>Predictive Analytics</h5>
+                    <p>Helped a logistics company optimize routes using AI, saving 25% on fuel and improving delivery times.</p>
+                    <div style="flex:1 1 auto;"></div>
+                    <span class="badge">AI Analytics</span>
                 </div>
             </div>
         </div>
+        <style>
+        /* Case Studies Section Modernized to Match Theme */
+        #case-studies .case-studies-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px 24px;
+            margin-top: 32px;
+        }
+        #case-studies .case-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(129,33,200,0.10);
+            padding: 36px 24px 28px 24px;
+            min-width: 260px;
+            max-width: 350px;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+            margin: 0 8px 16px 8px;
+        }
+        #case-studies .case-card:hover {
+            box-shadow: 0 8px 32px rgba(129,33,200,0.13);
+            transform: translateY(-6px) scale(1.04);
+        }
+        #case-studies .case-card i {
+            font-size: 2.7rem;
+            margin-bottom: 18px;
+        }
+        #case-studies .case-card h5 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        #case-studies .case-card p {
+            color: #666;
+            font-size: 1.08rem;
+            text-align: center;
+        }
+        #case-studies .case-card .badge {
+            display: inline-block;
+            width: auto;
+            padding: 0.5rem 1.5rem;
+            border-radius: 22px;
+            font-size: 1.08rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 16px;
+            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
+            color: #fff !important;
+            border: none;
+            box-shadow: 0 2px 8px rgba(129,33,200,0.10);
+            transition: background 0.3s, color 0.3s;
+        }
+        #case-studies .case-card .badge-success,
+        #case-studies .case-card .badge-primary,
+        #case-studies .case-card .badge-warning {
+            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%) !important;
+            color: #fff !important;
+        }
+        #case-studies .case-card .badge:hover {
+            background: linear-gradient(90deg, #ff7043 0%, #8121c8 100%);
+            color: #fff !important;
+        }
+        #case-studies h2 {
+            color: #8121c8;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 900px) {
+            #case-studies .row {
+                flex-direction: column;
+                align-items: center;
+            }
+            #case-studies .case-card {
+                max-width: 95vw;
+            }
+        }
+        </style>
+    </div>
+
+    <!-- Team Section -->
+    <div id="team" class="section team-section animate">
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <div class="row justify-content-center team-cards">
+                <!-- Team Member 1 -->
+                <div class="col-md-3 col-sm-6 team-member animate">
+                    <div class="team-card">
+                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/previews/046/454/930/large_2x/3d-transparent-icon-of-people-free-png.png" alt="Vivek Shiva">
+                        <h4>Vivek</h4>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="col-md-3 col-sm-6 team-member animate">
+                    <div class="team-card">
+                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/previews/046/454/930/large_2x/3d-transparent-icon-of-people-free-png.png" alt="Saikishore">
+                        <h4>Saikishore</h4>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="col-md-3 col-sm-6 team-member animate">
+                    <div class="team-card">
+                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/previews/046/454/930/large_2x/3d-transparent-icon-of-people-free-png.png" alt="Harsha">
+                        <h4>Harsha</h4>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <!-- Team Member 4 -->
+                <div class="col-md-3 col-sm-6 team-member animate">
+                    <div class="team-card">
+                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/previews/046/454/930/large_2x/3d-transparent-icon-of-people-free-png.png" alt="Udaykiran">
+                        <h4>Udaykiran</h4>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <!-- Team Member 5 -->
+                <div class="col-md-3 col-sm-6 team-member animate">
+                    <div class="team-card">
+                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/previews/046/454/930/large_2x/3d-transparent-icon-of-people-free-png.png" alt="Nazeer Ahmed">
+                        <h4>Nazeer</h4>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+        /* Enhanced Team Section */
+        #team .team-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px 24px;
+        }
+        #team .team-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(129,33,200,0.10);
+            padding: 36px 24px 28px 24px;
+            margin: 0 8px 16px 8px;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+        }
+        #team .team-card:hover {
+            box-shadow: 0 8px 32px rgba(129,33,200,0.16);
+            transform: translateY(-6px) scale(1.04);
+        }
+        #team .team-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            font-size: 2.5rem;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(129,33,200,0.10);
+        }
+        #team .team-card h4 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        #team .team-card p {
+            color: #666;
+            font-size: 1.08rem;
+        }
+        @media (max-width: 900px) {
+            #team .team-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            #team .team-card {
+                max-width: 95vw;
+            }
+        }
+        </style>
     </div>
 
     <!-- Locations Section -->
-    <div id="locations" class="section">
+    <div id="locations" class="section animate">
         <div class="container">
             <h2>Our Locations</h2>
             <p>AI Human Mind operates globally with offices in key locations to serve clients across North America and Asia. Explore our offices below.</p>
             <div class="row">
                 <!-- Vancouver Location -->
                 <div class="col-md-4">
-                    <div class="location-card">
+                    <div class="location-card animate">
                         <i class="fas fa-map-marker-alt"></i>
                         <h4>Vancouver, BC</h4>
                         <p>Canada 🇨🇦</p>
@@ -564,7 +1219,7 @@
                 </div>
                 <!-- Seattle Location -->
                 <div class="col-md-4">
-                    <div class="location-card">
+                    <div class="location-card animate">
                         <i class="fas fa-map-marker-alt"></i>
                         <h4>Seattle, Washington</h4>
                         <p>USA 🇺🇸</p>
@@ -573,7 +1228,7 @@
                 </div>
                 <!-- Hyderabad Location -->
                 <div class="col-md-4">
-                    <div class="location-card">
+                    <div class="location-card animate">
                         <i class="fas fa-map-marker-alt"></i>
                         <h4>Hyderabad, Telangana</h4>
                         <p>India 🇮🇳</p>
@@ -604,6 +1259,9 @@
             <p>&copy; 2024 AI Human Mind. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
 
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -645,6 +1303,41 @@
             $('.navbar-nav>li>a').on('click', function(){
                 $('.navbar-collapse').collapse('hide');
             });
+
+            // Navbar shadow and color on scroll
+            $(window).on('scroll', function() {
+                if($(window).scrollTop() > 60) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+
+            // Back to Top button logic
+            var backToTop = $('#backToTop');
+            $(window).on('scroll', function() {
+                if($(window).scrollTop() > 300) {
+                    backToTop.fadeIn();
+                } else {
+                    backToTop.fadeOut();
+                }
+            });
+            backToTop.on('click', function() {
+                $('html, body').animate({scrollTop: 0}, 700);
+            });
+
+            // Animated scroll effects
+            function revealOnScroll() {
+                $('.animate').each(function(){
+                    var elemTop = $(this).offset().top;
+                    var winBottom = $(window).scrollTop() + $(window).height() - 60;
+                    if(elemTop < winBottom) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+            $(window).on('scroll resize', revealOnScroll);
+            revealOnScroll();
         });
     </script> 
 </body>
