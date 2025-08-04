@@ -4,1491 +4,380 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Human Mind</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Google Fonts: Inter, Poppins, Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
     <style>
-        body {
-            font-family: 'Inter', 'Poppins', 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(120deg, #f7f8fa 0%, #e9e6f7 100%);
-            color: #23223a;
-            letter-spacing: 0.01em;
-        }
-        
-        /* Navbar */
-        .navbar {
-            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
-            box-shadow: 0 4px 24px rgba(129,33,200,0.08);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: background 0.3s ease;
-        }
-
-        .navbar-brand {
-            font-family: 'Montserrat', 'Poppins', sans-serif;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .navbar-brand img {
-            max-height: 50px;
-        }
-
-        .navbar .navbar-nav .nav-link {
-            color: #fff;
-            font-weight: 500;
-            font-family: 'Poppins', sans-serif;
-            transition: color 0.2s;
-        }
-
-        .navbar .navbar-nav .nav-link:hover {
-            color: #ffd6c1;
-            text-shadow: 0 2px 8px #8121c8;
-        }
-
-        .navbar-toggler {
-            font-size: 1.75rem;
-            color: #fff;
-        }
-
-        .navbar-toggler .fas.fa-bars {
-            color: #fff !important;
-        }
-
-        .navbar-toggler-icon {
-            height: 1em;
-            color: #fff;
-        }
-
-        .navbar .container{
-            justify-content: center;
-        }
-
-        .navbar-nav {
-            align-items: center;
-        }
-
-        /* Jumbotron */
-        .jumbotron {
-            background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), 
-url('https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI_HUMAN_MIND-bg.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            box-shadow: 0 8px 32px rgba(36,18,56,0.10);
-            height: 75vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            margin-bottom: 0;
-            margin-top: 80px; /* Adjust this value to match your navbar height */
-        }
-
-        .jumbotron h1 {
-            font-family: 'Montserrat', 'Poppins', sans-serif;
-            font-size: 4rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-shadow: 0 4px 24px #8121c8;
-            margin-bottom: 1rem;
-        }
-
-        .jumbotron p.lead {
-            font-size: 1.6rem;
-            color: #f3e7fd;
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 2rem;
-        }
-
-        .jumbotron .btn {
-            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            border: none;
-            box-shadow: 0 4px 16px rgba(129,33,200,0.13);
-            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-            font-size: 1.2rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-        }
-
-        .jumbotron .btn:hover {
-            background: linear-gradient(90deg, #ff7043 0%, #8121c8 100%);
-            box-shadow: 0 8px 32px rgba(129,33,200,0.18);
-            transform: translateY(-2px) scale(1.04);
-        }
-
-        /* Section Styling */
-        .section {
-            padding: 80px 0;
-            text-align: center;
-            scroll-margin-top: 100px;
-        }
-
-        .section h2 {
-            font-family: 'Montserrat', 'Poppins', sans-serif;
-            font-weight: 700;
-            color: #8121c8;
-            letter-spacing: 1.5px;
-            margin-bottom: 2.5rem;
-        }
-
-        .section p, .card-text, .team-card p, .location-card p {
-            color: #4a4666;
-            font-family: 'Inter', sans-serif;
-        }
-
-        #team {
-            background-color: #ffffff; 
-        }
-
-        #contact {
-            background-color: #ffffff;
-        }
-
-        /* Social Links */
-        .social-links {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px;
-        }
-
-        .social-links li {
-            display: inline-block;
-            margin-right: 15px;
-        }
-
-        .social-links li a {
-            color: #fff;
-            font-size: 1.5rem;
-}
-
-
-        /* About Us Section */
-        #about {
-            background-color: #fff;
-            padding: 50px 0;
-        }
-
-        #about .about-content {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        #about .about-content .about-item {
-            flex: 1;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #about .about-content .about-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        #about .about-content .about-item i {
-            font-size: 3rem;
-            color: #ff7043;
-            margin-bottom: 15px;
-        }
-
-        #about .about-content .about-item h4 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        #about .about-content .about-item p {
-            color: #666;
-        }
-
-        /* Locations Section */
-        #locations {
-            background-color: #f3f4f6;
-            padding: 50px 0;
-        }
-
-        .location-card {
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin-bottom: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .location-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .location-card i {
-            font-size: 3rem;
-            color: #ff7043;
-            margin-bottom: 15px;
-        }
-
-        .location-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .location-card p {
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .location-card span {
-            display: block;
-            color: #333;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-
-        /* Services Section */
-        #services {
-            background-color: #f9f9f9;
-        }
-
-        .service-card {
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 2rem;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-card i {
-            font-size: 3rem;
-            color: #ff7043;
-            margin-bottom: 1rem;
-        }
-
-        /* Team Section */
-        #team .team-member {
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #team .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-
-        .team-member h4 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .team-member p {
-            color: #666;
-        }
-
-        .team-section .row {
-            justify-content: center;
-        }
-
-        /* Enhanced Team Section */
-        #team .team-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 32px 24px;
-        }
-        #team .team-card {
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 16px rgba(129,33,200,0.10);
-            padding: 36px 24px 28px 24px;
-            margin: 0 8px 16px 8px;
-            min-height: 260px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: box-shadow 0.3s, transform 0.3s;
-            position: relative;
-        }
-        #team .team-card:hover {
-            box-shadow: 0 8px 32px rgba(129,33,200,0.16);
-            transform: translateY(-6px) scale(1.04);
-        }
-        #team .team-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 18px;
-            font-size: 2.5rem;
-            color: #fff;
-            box-shadow: 0 2px 8px rgba(129,33,200,0.10);
-        }
-        #team .team-card h4 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        #team .team-card p {
-            color: #666;
-            font-size: 1.08rem;
-        }
-        @media (max-width: 900px) {
-            #team .team-cards {
-                flex-direction: column;
-                align-items: center;
-            }
-            #team .team-card {
-                max-width: 95vw;
-            }
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 -4px 24px rgba(129,33,200,0.10);
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .footer ul {
-            padding: 0;
-            margin: 0 0 10px;
-        }
-
-        .footer ul li {
-            display: inline-block;
-            margin-right: 15px;
-        }
-
-        .footer ul li a {
-            color: #fff;
-            font-size: 1.4rem;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .footer ul li a:hover {
-            color: #ff7043;
-            transform: scale(1.18) rotate(-6deg);
-        }
-
-        .footer p {
-            margin-bottom: 0;
-        }
-
-        /* Back to Top Button */
-        #backToTop {
-            display: none;
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            z-index: 1050;
-            background: linear-gradient(135deg, #8121c8 0%, #ff7043 100%);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 2rem;
-            box-shadow: 0 4px 16px rgba(129,33,200,0.15);
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-        }
-        #backToTop:hover {
-            background: linear-gradient(135deg, #ff7043 0%, #8121c8 100%);
-            transform: translateY(-4px) scale(1.08);
-        }
-
-        /* Animated Scroll Effects */
-        .animate {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
-        }
-        .animate.visible {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* Navbar shadow and color on scroll */
-        .navbar.scrolled {
-            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%) !important;
-            box-shadow: 0 4px 24px rgba(129,33,200,0.08);
-        }
-
-        /* Card hover pop */
-        .service-card, .location-card, .team-member {
-            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
-        }
-        .service-card:hover, .location-card:hover, .team-member:hover {
-            transform: translateY(-12px) scale(1.04);
-            box-shadow: 0 16px 32px rgba(129,33,200,0.10);
-        }
-
-        /* Why AI-First Section improvements */
-        #why-ai {
-            padding-top: 60px;
-            padding-bottom: 60px;
-        }
-        #why-ai h2 {
-            color: #8121c8;
-            font-weight: 700;
-        }
-        #why-ai .row > div {
-            background: #fff;
-            border-radius: 14px;
-            box-shadow: 0 4px 16px rgba(129,33,200,0.06);
-            padding: 32px 18px 24px 18px;
-            margin: 0 8px 16px 8px;
-            min-height: 260px;
-        }
-        #why-ai i {
-            margin-bottom: 10px;
-        }
-        /* Why AI-First Section - improved layout */
-        #why-ai .row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 32px 24px;
-        }
-        #why-ai .ai-card {
-            flex: 1 1 320px;
-            max-width: 350px;
-            min-width: 260px;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 16px rgba(129,33,200,0.08);
-            padding: 36px 24px 28px 24px;
-            margin: 0 8px 16px 8px;
-            min-height: 260px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-        #why-ai .ai-card:hover {
-            box-shadow: 0 8px 32px rgba(129,33,200,0.13);
-            transform: translateY(-6px) scale(1.03);
-        }
-        #why-ai .ai-card i {
-            margin-bottom: 18px;
-            font-size: 2.7rem;
-        }
-        #why-ai .ai-card h4 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        #why-ai .ai-card p {
-            color: #666;
-            font-size: 1.08rem;
-        }
-        #why-ai h2 {
-            color: #8121c8;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-        @media (max-width: 900px) {
-            #why-ai .row,
-            #case-studies .row,
-            #case-studies .case-studies-cards,
-            #ai-tech .ai-tech-cards,
-            #team .team-cards {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 20px 0 !important;
-            }
-            #why-ai .ai-card,
-            #case-studies .case-card,
-            #ai-tech .ai-tech-card,
-            #team .team-card {
-                max-width: 95vw !important;
-                min-width: 0 !important;
-                width: 100% !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-            .about-content {
-                flex-direction: column !important;
-                gap: 20px 0 !important;
-            }
-            .about-item {
-                min-width: 0 !important;
-                width: 100% !important;
-                max-width: 95vw !important;
-            }
-            .location-card {
-                max-width: 95vw !important;
-                width: 100% !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-            .service-card {
-                max-width: 95vw !important;
-                width: 100% !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-            .row > [class^='col-'] {
-                max-width: 100% !important;
-                flex: 0 0 100% !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-            }
-            .section {
-                padding: 40px 0 !important;
-            }
-            .jumbotron {
-                height: auto !important;
-                padding: 60px 0 40px 0 !important;
-                margin-top: 60px !important;
-            }
-            .navbar {
-                padding: 8px 0 !important;
-            }
-        }
-        @media (max-width: 600px) {
-            .jumbotron h1 {
-                font-size: 2.1rem !important;
-            }
-            .jumbotron p.lead {
-                font-size: 1.1rem !important;
-            }
-            .section h2 {
-                font-size: 1.5rem !important;
-            }
-            #team .team-icon {
-                width: 48px !important;
-                height: 48px !important;
-            }
-            #team .team-card {
-                padding: 18px 8px 16px 8px !important;
-            }
-            #why-ai .ai-card, #case-studies .case-card, #ai-tech .ai-tech-card {
-                padding: 18px 8px 16px 8px !important;
-            }
-            .navbar-brand {
-                font-size: 1.1rem !important;
-                letter-spacing: 1px;
-            }
-        }
-        /* Ensure horizontal scroll never appears */
-        html, body {
-            max-width: 100vw;
-            overflow-x: hidden;
-        }
-        /* --- Responsive Card Decks and Cards --- */
-        .card-deck {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px 16px;
-        }
-        .card {
-            flex: 1 1 320px;
-            margin: 12px;
-            min-width: 260px;
-            max-width: 350px;
-            width: 100%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.10);
-            border-radius: 16px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-        }
-        .card:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 8px 24px rgba(129,33,200,0.13);
-        }
-        .card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 16px 16px 0 0;
-        }
-        .card-body {
-            padding: 18px 16px 16px 16px;
-            flex: 1 1 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-        .card-title {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-            color: #8121c8;
-        }
-        .card-text {
-            font-size: 1rem;
-            color: #666;
-        }
-        @media (max-width: 1200px) {
-            .card-deck {
-                gap: 18px 8px;
-            }
-            .card {
-                min-width: 220px;
-                max-width: 320px;
-            }
-        }
-        @media (max-width: 900px) {
-            .card-deck {
-                flex-direction: column;
-                align-items: center;
-                gap: 16px 0;
-            }
-            .card {
-                min-width: 0;
-                max-width: 98vw;
-                width: 100%;
-                margin: 10px 0;
-            }
-        }
-        @media (max-width: 600px) {
-            .card {
-                padding: 0;
-                border-radius: 12px;
-            }
-            .card-body {
-                padding: 12px 8px 12px 8px;
-            }
-            .card-title {
-                font-size: 1.08rem;
-            }
-        }
-        /* --- General Responsive Improvements for All Sections --- */
-        @media (max-width: 900px) {
-            .section, #about, #locations, #services, #team, #case-studies, #ai-tech {
-                padding: 36px 0 !important;
-            }
-            .jumbotron {
-                height: auto !important;
-                padding: 48px 0 32px 0 !important;
-                margin-top: 60px !important;
-            }
-            .navbar {
-                padding: 8px 0 !important;
-            }
-            .about-content, #team .team-cards, #case-studies .case-studies-cards, #ai-tech .ai-tech-cards, #why-ai .row {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 18px 0 !important;
-            }
-            .about-item, #team .team-card, #case-studies .case-card, #ai-tech .ai-tech-card, #why-ai .ai-card, .location-card, .service-card {
-                max-width: 98vw !important;
-                min-width: 0 !important;
-                width: 100% !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-            .row > [class^='col-'] {
-                max-width: 100% !important;
-                flex: 0 0 100% !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-            }
-        }
-        @media (max-width: 600px) {
-            .jumbotron h1 {
-                font-size: 2rem !important;
-            }
-            .jumbotron p.lead {
-                font-size: 1rem !important;
-            }
-            .section h2 {
-                font-size: 1.2rem !important;
-            }
-            #team .team-icon {
-                width: 44px !important;
-                height: 44px !important;
-            }
-            #team .team-card, #why-ai .ai-card, #case-studies .case-card, #ai-tech .ai-tech-card {
-                padding: 12px 4px 10px 4px !important;
-            }
-        }
-        html, body {
-            max-width: 100vw;
-            overflow-x: hidden;
-        }
-        /* Team Avatar Style */
-        .team-avatar {
-            width: 90px;
-            height: 90px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 18px;
-            box-shadow: 0 6px 24px 0 rgba(129,33,200,0.18), 0 1.5px 6px 0 rgba(255,112,67,0.10);
-            border: 4px solid #fff;
-            background: linear-gradient(135deg, #8121c8 0%, #ff7043 100%);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .team-card:hover .team-avatar {
-            transform: scale(1.08) rotate(-3deg);
-            box-shadow: 0 12px 32px 0 rgba(129,33,200,0.22), 0 2px 8px 0 rgba(255,112,67,0.13);
-            border-color: #ff7043;
-        }
-        /* Glassmorphism for cards */
-        .about-item, .service-card, .location-card, .ai-card, .case-card, .team-card {
-            backdrop-filter: blur(4px);
-        }
-
-        @media (max-width: 900px) {
-            #ai-tech .ai-tech-cards {
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: flex-start !important;
-                gap: 16px !important;
-                overflow-x: hidden !important;
-                flex-wrap: nowrap !important;
-                -webkit-overflow-scrolling: touch;
-                padding-bottom: 8px;
-                width: max-content;
-                min-width: 100vw;
-                animation: aiTechScroll 30s linear infinite;
-                white-space: nowrap;
-                /* Optional: fade edges for premium look */
-                mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-            }
-            #ai-tech .ai-tech-card {
-                min-width: 120px !important;
-                max-width: 140px !important;
-                flex: 0 0 auto !important;
-                margin: 0 8px 0 0 !important;
-            }
-            @keyframes aiTechScroll {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-        }
-        @media (max-width: 600px) {
-            #ai-tech .ai-tech-cards {
-                gap: 10px !important;
-                padding-left: 8px;
-                padding-right: 8px;
-            }
-            #ai-tech .ai-tech-card {
-                min-width: 110px !important;
-                max-width: 120px !important;
-                padding: 14px 6px 10px 6px !important;
-            }
-        }
-
-        .ai-tech-dup { display: none; }
-        @media (max-width: 900px) {
-            .ai-tech-dup { display: contents; }
-        }
+      body {
+        font-family: 'Inter', 'Poppins', 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      /* Animate mobile menu dropdown */
+      #navbar-menu.menu-open {
+        animation: navbarMenuFadeIn 0.35s cubic-bezier(0.4,0,0.2,1);
+      }
+      @keyframes navbarMenuFadeIn {
+        0% { opacity: 0; transform: translateY(-16px) scale(0.98); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI-HUMAN-MIND_logo.png" alt="AI Human Mind Logo"> <!-- Logo Image -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-purple-700 via-purple-600 to-orange-400 shadow-lg py-4 transition-colors">
+        <div class="container mx-auto flex items-center justify-between px-4">
+            <a class="flex items-center gap-4 font-bold text-white tracking-widest text-xl font-montserrat" href="#">
+                <img src="https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI-HUMAN-MIND_logo.png" alt="AI Human Mind Logo" class="h-12"> 
                 AI Human Mind
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-                    <i class="fas fa-bars"></i>
-                </span>
+            <button class="lg:hidden text-white text-2xl focus:outline-none" id="navbar-toggle">
+                <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#locations">Locations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#team">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
+            <div class="hidden lg:flex items-center gap-8 transition-all duration-300 ease-in-out transform" id="navbar-menu" style="margin-right:0rem;">
+                <a class="text-white font-medium hover:text-orange-200 transition" href="#home">Home</a>
+                <a class="text-white font-medium hover:text-orange-200 transition" href="#about">About</a>
+                <a class="text-white font-medium hover:text-orange-200 transition" href="#services">Services</a>
+                <a class="text-white font-medium hover:text-orange-200 transition" href="#locations">Locations</a>
+                <a class="text-white font-medium hover:text-orange-200 transition" href="#team">Team</a>
+                <a class="text-white font-medium hover:text-orange-200 transition" href="#contact">Contact</a>
             </div>
         </div>
     </nav>
+    <script>
+      // Simple mobile nav toggle with animation
+      document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.getElementById('navbar-toggle');
+        const menu = document.getElementById('navbar-menu');
+        if(toggle && menu) {
+          toggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            menu.classList.toggle('flex-col');
+            menu.classList.toggle('items-end');
+            menu.classList.toggle('bg-gradient-to-r');
+            menu.classList.toggle('from-purple-700');
+            menu.classList.toggle('to-orange-400');
+            menu.classList.toggle('absolute');
+            menu.classList.toggle('top-full');
+            menu.classList.toggle('left-0');
+            menu.classList.toggle('right-0');
+            menu.classList.toggle('w-full');
+            menu.classList.toggle('px-4');
+            menu.classList.toggle('shadow-xl');
+            menu.classList.toggle('p-4');
+            menu.classList.toggle('menu-open');
+            // Remove classes that restrict width or add rounding
+            menu.classList.remove('right-4','rounded-lg','w-48');
+          });
+          // Close menu when a nav link is clicked (mobile only)
+          menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+              if(window.innerWidth < 1024 && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex','flex-col','items-end','bg-gradient-to-r','from-purple-700','to-orange-400','absolute','top-full','left-0','right-0','w-full','px-4','shadow-xl','p-4','menu-open');
+              }
+            });
+          });
+        }
+      });
+    </script>
 
     <!-- Jumbotron -->
-    <div id="home" class="jumbotron">
-        <div class="container">
-            <h1>AI Human Mind</h1>
-            <p class="lead">Unlock the potential of artificial intelligence to revolutionize the human mind.</p>
-            <a href="#about" class="btn btn-lg">Learn More</a>
-        </div>
-    </div>
+    <section id="home" class="flex items-center justify-center min-h-[75vh] bg-cover bg-center relative text-white text-center mt-20" style="background-image:linear-gradient(to right bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.3)),url('https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI_HUMAN_MIND-bg.png');">
+      <div class="container mx-auto px-4 flex flex-col items-center justify-center">
+        <h1 class="font-montserrat font-extrabold text-4xl md:text-6xl tracking-wider drop-shadow-lg mb-4">AI Human Mind</h1>
+        <p class="text-lg md:text-2xl text-purple-100 font-inter mb-8 max-w-2xl">Unlock the potential of artificial intelligence to revolutionize the human mind.</p>
+        <a href="#about" class="inline-block bg-gradient-to-r from-purple-700 to-orange-400 text-white font-poppins font-semibold rounded-full px-8 py-3 text-lg shadow-lg hover:from-orange-400 hover:to-purple-700 transition-all duration-200">Learn More</a>
+      </div>
+    </section>
 
     <!-- About Us Section -->
-    <div id="about" class="section animate">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>AI Human Mind is a leading AI solutions provider, dedicated to harnessing the power of artificial intelligence to revolutionize industries and enhance human capabilities. Our mission is to empower businesses and individuals by integrating AI tools that deliver efficiency, innovation, and intelligence.</p>
-            <div class="about-content">
-                <div class="about-item animate">
-                    <i class="fas fa-brain"></i>
-                    <h4>Innovation in AI</h4>
-                    <p>We continuously innovate in the field of AI, developing cutting-edge technologies that push the boundaries of human potential.</p>
-                </div>
-                <div class="about-item animate">
-                    <i class="fas fa-users-cog"></i>
-                    <h4>Customized Solutions</h4>
-                    <p>Our AI solutions are tailored to meet the specific needs of your business, ensuring maximum impact and value.</p>
-                </div>
-                <div class="about-item animate">
-                    <i class="fas fa-laptop-code"></i>
-                    <h4>Advanced Technologies</h4>
-                    <p>We integrate advanced AI tools, including machine learning, deep learning, and natural language processing, to transform how businesses operate.</p>
-                </div>
-            </div>
+    <section id="about" class="py-20 bg-white text-center animate">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-8 font-montserrat">About Us</h2>
+        <p class="text-gray-700 max-w-2xl mx-auto mb-12 font-inter">AI Human Mind is a leading AI solutions provider, dedicated to harnessing the power of artificial intelligence to revolutionize industries and enhance human capabilities. Our mission is to empower businesses and individuals by integrating AI tools that deliver efficiency, innovation, and intelligence.</p>
+        <div class="flex flex-col md:flex-row gap-8 justify-center about-content">
+          <div class="flex-1 bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 about-item animate">
+            <i class="fas fa-brain text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">Innovation in AI</h4>
+            <p class="text-gray-600">We continuously innovate in the field of AI, developing cutting-edge technologies that push the boundaries of human potential.</p>
+          </div>
+          <div class="flex-1 bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 about-item animate">
+            <i class="fas fa-users-cog text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">Customized Solutions</h4>
+            <p class="text-gray-600">Our AI solutions are tailored to meet the specific needs of your business, ensuring maximum impact and value.</p>
+          </div>
+          <div class="flex-1 bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 about-item animate">
+            <i class="fas fa-laptop-code text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">Advanced Technologies</h4>
+            <p class="text-gray-600">We integrate advanced AI tools, including machine learning, deep learning, and natural language processing, to transform how businesses operate.</p>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
     <!-- Why AI-First Section -->
-    <div id="why-ai" class="section animate" style="background: linear-gradient(120deg, #fff 0%, #e3f2fd 100%);">
-        <div class="container">
-            <h2>Why Go AI-First?</h2>
-            <div class="row">
-                <div class="ai-card">
-                    <i class="fas fa-rocket" style="color:#8121c8;"></i>
-                    <h4>Accelerate Innovation</h4>
-                    <p>AI enables rapid prototyping, smarter products, and faster go-to-market for your business.</p>
-                </div>
-                <div class="ai-card">
-                    <i class="fas fa-brain" style="color:#ff7043;"></i>
-                    <h4>Unlock Human Potential</h4>
-                    <p>Automate repetitive tasks and empower your team to focus on creativity and strategy.</p>
-                </div>
-                <div class="ai-card">
-                    <i class="fas fa-chart-line" style="color:#8121c8;"></i>
-                    <h4>Data-Driven Decisions</h4>
-                    <p>Leverage AI to gain actionable insights and make smarter, faster business decisions.</p>
-                </div>
-            </div>
+    <section id="why-ai" class="py-20 bg-gradient-to-r from-white to-blue-100 animate">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-8 font-montserrat">Why Go AI-First?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-card animate">
+            <i class="fas fa-rocket text-4xl mb-4" style="color:#8121c8;"></i>
+            <h4 class="text-xl font-semibold mb-2">Accelerate Innovation</h4>
+            <p class="text-gray-600 text-center">AI enables rapid prototyping, smarter products, and faster go-to-market for your business.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-card animate">
+            <i class="fas fa-brain text-4xl mb-4" style="color:#ff7043;"></i>
+            <h4 class="text-xl font-semibold mb-2">Unlock Human Potential</h4>
+            <p class="text-gray-600 text-center">Automate repetitive tasks and empower your team to focus on creativity and strategy.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-card animate">
+            <i class="fas fa-chart-line text-4xl mb-4" style="color:#8121c8;"></i>
+            <h4 class="text-xl font-semibold mb-2">Data-Driven Decisions</h4>
+            <p class="text-gray-600 text-center">Leverage AI to gain actionable insights and make smarter, faster business decisions.</p>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
     <!-- AI Technologies Section -->
-    <div id="ai-tech" class="section animate">
-        <div class="container">
-            <h2>Our AI & App Technologies</h2>
-            <div class="row justify-content-center ai-tech-cards">
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>Python</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>TensorFlow</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>PyTorch</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>JavaScript</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>TypeScript</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <i class="fab fa-aws" style="display:none;color:#ff9900;font-size:2.2rem;"></i>
-                    <span>AWS AI</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <i class="fab fa-google" style="display:none;color:#4285F4;font-size:2.2rem;"></i>
-                    <span>GCP AI</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="iOS (Swift)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>iOS (Swift)</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Android (Kotlin)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>Android</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>Flutter</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>React Native</span>
-                </div>
-                <div class="ai-tech-card animate">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="height:48px;width:48px;margin-bottom:14px;object-fit:contain;">
-                    <span>OpenAI</span>
-                </div>
-                <!-- Duplicated for infinite scroll, only visible on mobile -->
-                <div class="ai-tech-dup">
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <span>Python</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <span>TensorFlow</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <span>PyTorch</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <span>TypeScript</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <i class="fab fa-aws" style="display:none;color:#ff9900;font-size:2.2rem;"></i>
-                        <span>AWS AI</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <i class="fab fa-google" style="display:none;color:#4285F4;font-size:2.2rem;"></i>
-                        <span>GCP AI</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="iOS (Swift)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <span>iOS (Swift)</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Android (Kotlin)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <span>Android (Kotlin)</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <span>Flutter</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                        <span>React Native</span>
-                    </div>
-                    <div class="ai-tech-card animate">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="height:48px;width:48px;margin-bottom:14px;object-fit:contain;">
-                        <span>OpenAI</span>
-                    </div>
-                </div>
-            </div>
+    <section id="ai-tech" class="py-20 bg-white animate">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-8 font-montserrat">Our AI & App Technologies</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center">
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">Python</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">TensorFlow</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">PyTorch</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">JavaScript</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">TypeScript</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS AI" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">AWS AI</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP AI" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">GCP AI</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="iOS (Swift)" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">iOS (Swift)</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Android (Kotlin)" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">Android</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">Flutter</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" class="h-12 w-12 mb-3">
+            <span class="font-semibold text-purple-700">React Native</span>
+          </div>
+          <div class="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 ai-tech-card animate">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" class="h-12 w-12 mb-3" style="object-fit:contain;">
+            <span class="font-semibold text-purple-700">OpenAI</span>
+          </div>
         </div>
-        <style>
-        /* AI Technologies Section Modern Flex Layout */
-        #ai-tech .ai-tech-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 32px 32px;
-            margin-top: 32px;
-        }
-        #ai-tech .ai-tech-card {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(129,33,200,0.08);
-            padding: 28px 18px 18px 18px;
-            min-width: 120px;
-            max-width: 140px;
-            min-height: 140px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            transition: box-shadow 0.3s, transform 0.3s;
-            margin: 0 8px 16px 8px;
-        }
-        #ai-tech .ai-tech-card:hover {
-            box-shadow: 0 8px 32px rgba(129,33,200,0.13);
-            transform: translateY(-6px) scale(1.05);
-        }
-        #ai-tech .ai-tech-card img, #ai-tech .ai-tech-card i {
-            height: 48px;
-            width: 48px;
-            margin-bottom: 14px;
-            display: block;
-            object-fit: contain;
-        }
-        #ai-tech .ai-tech-card span {
-            font-size: 1.08rem;
-            font-weight: 600;
-            color: #8121c8;
-            text-align: center;
-        }
-        @media (max-width: 900px) {
-            #ai-tech .ai-tech-cards {
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: flex-start !important;
-                gap: 16px !important;
-                overflow-x: hidden !important;
-                flex-wrap: nowrap !important;
-                -webkit-overflow-scrolling: touch;
-                padding-bottom: 8px;
-                width: max-content;
-                min-width: 100vw;
-                animation: aiTechScroll 30s linear infinite;
-                white-space: nowrap;
-                /* Optional: fade edges for premium look */
-                mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-            }
-            #ai-tech .ai-tech-card {
-                min-width: 120px !important;
-                max-width: 140px !important;
-                flex: 0 0 auto !important;
-                margin: 0 8px 0 0 !important;
-            }
-            @keyframes aiTechScroll {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-        }
-        @media (max-width: 600px) {
-            #ai-tech .ai-tech-cards {
-                gap: 10px !important;
-                padding-left: 8px;
-                padding-right: 8px;
-            }
-            #ai-tech .ai-tech-card {
-                min-width: 110px !important;
-                max-width: 120px !important;
-                padding: 14px 6px 10px 6px !important;
-            }
-        }
-        </style>
-    </div>
+      </div>
+    </section>
 
     <!-- Services Section -->
-    <div id="services" class="section animate">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="service-card animate">
-                        <i class="fas fa-comments"></i>
-                        <h4>AI-Powered Chatbots</h4>
-                        <p>We create AI-driven chatbots designed to provide seamless customer service for various industries, enhancing user experiences.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="service-card animate">
-                        <i class="fas fa-globe"></i>
-                        <h4>AI-Generated Websites</h4>
-                        <p>Our AI-generated websites are built for efficiency and speed, helping businesses establish a powerful online presence effortlessly.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="service-card animate">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                        <h4>AI Training and Consulting</h4>
-                        <p>We offer specialized training programs and consulting services to help your team embrace AI technologies and transform your business.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="service-card animate">
-                        <i class="fas fa-people-carry"></i>
-                        <h4>AI Outsourcing</h4>
-                        <p>Our outsourcing solutions give businesses access to top AI talent, allowing you to scale your projects efficiently and effectively.</p>
-                    </div>
-                </div>
-            </div>
+    <section id="services" class="py-20 bg-gray-50 animate">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-8 font-montserrat">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 service-card animate">
+            <i class="fas fa-comments text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">AI-Powered Chatbots</h4>
+            <p class="text-gray-600 text-center">We create AI-driven chatbots designed to provide seamless customer service for various industries, enhancing user experiences.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 service-card animate">
+            <i class="fas fa-globe text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">AI-Generated Websites</h4>
+            <p class="text-gray-600 text-center">Our AI-generated websites are built for efficiency and speed, helping businesses establish a powerful online presence effortlessly.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 service-card animate">
+            <i class="fas fa-chalkboard-teacher text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">AI Training and Consulting</h4>
+            <p class="text-gray-600 text-center">We offer specialized training programs and consulting services to help your team embrace AI technologies and transform your business.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 service-card animate">
+            <i class="fas fa-people-carry text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">AI Outsourcing</h4>
+            <p class="text-gray-600 text-center">Our outsourcing solutions give businesses access to top AI talent, allowing you to scale your projects efficiently and effectively.</p>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
     <!-- Case Studies Section -->
-    <div id="case-studies" class="section animate" style="background: linear-gradient(120deg, #f3e7fd 0%, #fff 100%);">
-        <div class="container">
-            <h2>AI in Action: Success Stories</h2>
-            <div class="row case-studies-cards">
-                <div class="case-card animate">
-                    <div style="height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-                        <i class="fas fa-comments" style="color:#8121c8;font-size:2.7rem;"></i>
-                    </div>
-                    <h5>Retail Chatbot</h5>
-                    <p>Deployed a GPT-powered chatbot for a retail client, reducing support costs by 40% and boosting customer satisfaction.</p>
-                    <div style="flex:1 1 auto;"></div>
-                    <span class="badge">AI Chatbot</span>
-                </div>
-                <div class="case-card animate">
-                    <div style="height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-                        <i class="fas fa-globe" style="color:#ff7043;font-size:2.7rem;"></i>
-                    </div>
-                    <h5>AI Website Builder</h5>
-                    <p>Launched an AI-driven website generator, enabling small businesses to go online 10x faster with zero coding.</p>
-                    <div style="flex:1 1 auto;"></div>
-                    <span class="badge">AI Web</span>
-                </div>
-                <div class="case-card animate">
-                    <div style="height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-                        <i class="fas fa-chart-line" style="color:#8121c8;font-size:2.7rem;"></i>
-                    </div>
-                    <h5>Predictive Analytics</h5>
-                    <p>Helped a logistics company optimize routes using AI, saving 25% on fuel and improving delivery times.</p>
-                    <div style="flex:1 1 auto;"></div>
-                    <span class="badge">AI Analytics</span>
-                </div>
+    <section id="case-studies" class="py-20 bg-gradient-to-r from-purple-100 to-white animate">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-8 font-montserrat">AI in Action: Success Stories</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 case-card animate">
+            <div class="h-12 flex items-center justify-center mb-4">
+              <i class="fas fa-comments text-4xl text-purple-700"></i>
             </div>
+            <h5 class="text-lg font-bold mb-2 text-center">Retail Chatbot</h5>
+            <p class="text-gray-600 text-center">Deployed a GPT-powered chatbot for a retail client, reducing support costs by 40% and boosting customer satisfaction.</p>
+            <span class="inline-block mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-purple-700 to-orange-400 text-white font-bold text-sm shadow">AI Chatbot</span>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 case-card animate">
+            <div class="h-12 flex items-center justify-center mb-4">
+              <i class="fas fa-globe text-4xl text-orange-400"></i>
+            </div>
+            <h5 class="text-lg font-bold mb-2 text-center">AI Website Builder</h5>
+            <p class="text-gray-600 text-center">Launched an AI-driven website generator, enabling small businesses to go online 10x faster with zero coding.</p>
+            <span class="inline-block mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-purple-700 to-orange-400 text-white font-bold text-sm shadow">AI Web</span>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 case-card animate">
+            <div class="h-12 flex items-center justify-center mb-4">
+              <i class="fas fa-chart-line text-4xl text-purple-700"></i>
+            </div>
+            <h5 class="text-lg font-bold mb-2 text-center">Predictive Analytics</h5>
+            <p class="text-gray-600 text-center">Helped a logistics company optimize routes using AI, saving 25% on fuel and improving delivery times.</p>
+            <span class="inline-block mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-purple-700 to-orange-400 text-white font-bold text-sm shadow">AI Analytics</span>
+          </div>
         </div>
-        <style>
-        /* Case Studies Section Modernized to Match Theme */
-        #case-studies .case-studies-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 32px 24px;
-            margin-top: 32px;
-        }
-        #case-studies .case-card {
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 16px rgba(129,33,200,0.10);
-            padding: 36px 24px 28px 24px;
-            min-width: 260px;
-            max-width: 350px;
-            min-height: 260px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: box-shadow 0.3s, transform 0.3s;
-            margin: 0 8px 16px 8px;
-        }
-        #case-studies .case-card:hover {
-            box-shadow: 0 8px 32px rgba(129,33,200,0.13);
-            transform: translateY(-6px) scale(1.04);
-        }
-        #case-studies .case-card i {
-            font-size: 2.7rem;
-            margin-bottom: 18px;
-        }
-        #case-studies .case-card h5 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        #case-studies .case-card p {
-            color: #666;
-            font-size: 1.08rem;
-            text-align: center;
-        }
-        #case-studies .case-card .badge {
-            display: inline-block;
-            width: auto;
-            padding: 0.5rem 1.5rem;
-            border-radius: 22px;
-            font-size: 1.08rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-top: 16px;
-            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
-            color: #fff !important;
-            border: none;
-            box-shadow: 0 2px 8px rgba(129,33,200,0.10);
-            transition: background 0.3s, color 0.3s;
-        }
-        #case-studies .case-card .badge-success,
-        #case-studies .case-card .badge-primary,
-        #case-studies .case-card .badge-warning {
-            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%) !important;
-            color: #fff !important;
-        }
-        #case-studies .case-card .badge:hover {
-            background: linear-gradient(90deg, #ff7043 0%, #8121c8 100%);
-            color: #fff !important;
-        }
-        #case-studies h2 {
-            color: #8121c8;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-        @media (max-width: 900px) {
-            #case-studies .row {
-                flex-direction: column;
-                align-items: center;
-            }
-            #case-studies .case-card {
-                max-width: 95vw;
-            }
-        }
-        </style>
-    </div>
+      </div>
+    </section>
 
     <!-- Team Section -->
-    <div id="team" class="section team-section animate">
-        <div class="container">
-            <h2>Meet the Team</h2>
-            <div class="row justify-content-center team-cards">
-                <!-- Team Member 1 -->
-                <div class="col-md-3 col-sm-6 team-member animate">
-                    <div class="team-card">
-                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/thumbnails/059/036/250/small_2x/illustration-of-a-young-man-smiling-with-glasses-and-orange-shirt-png.png" alt="Vivek Shiva">
-                        <h4>Vivek</h4>
-                        <p>Software Engineer</p>
-                    </div>
-                </div>
-                <!-- Team Member 2 -->
-                <div class="col-md-3 col-sm-6 team-member animate">
-                    <div class="team-card">
-                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/thumbnails/059/036/250/small_2x/illustration-of-a-young-man-smiling-with-glasses-and-orange-shirt-png.png" alt="Saikishore">
-                        <h4>Saikishore</h4>
-                        <p>Software Engineer</p>
-                    </div>
-                </div>
-                <!-- Team Member 3 -->
-                <div class="col-md-3 col-sm-6 team-member animate">
-                    <div class="team-card">
-                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/thumbnails/059/036/250/small_2x/illustration-of-a-young-man-smiling-with-glasses-and-orange-shirt-png.png" alt="Harsha">
-                        <h4>Harsha</h4>
-                        <p>Software Engineer</p>
-                    </div>
-                </div>
-            </div>
+    <section id="team" class="py-20 bg-white animate">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-8 font-montserrat">Meet the Team</h2>
+        <div class="flex flex-col md:flex-row gap-8 justify-center team-cards">
+          <div class="flex-1 max-w-xs bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 team-card animate">
+            <img class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-white shadow-lg" src="https://static.vecteezy.com/system/resources/thumbnails/059/036/250/small_2x/illustration-of-a-young-man-smiling-with-glasses-and-orange-shirt-png.png" alt="Vivek Shiva">
+            <h4 class="text-xl font-semibold mb-2">Vivek</h4>
+            <p class="text-gray-600">Software Engineer</p>
+          </div>
+          <div class="flex-1 max-w-xs bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 team-card animate">
+            <img class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-white shadow-lg" src="https://static.vecteezy.com/system/resources/thumbnails/059/036/250/small_2x/illustration-of-a-young-man-smiling-with-glasses-and-orange-shirt-png.png" alt="Saikishore">
+            <h4 class="text-xl font-semibold mb-2">Saikishore</h4>
+            <p class="text-gray-600">Software Engineer</p>
+          </div>
+          <div class="flex-1 max-w-xs bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 team-card animate">
+            <img class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-white shadow-lg" src="https://static.vecteezy.com/system/resources/thumbnails/059/036/250/small_2x/illustration-of-a-young-man-smiling-with-glasses-and-orange-shirt-png.png" alt="Harsha">
+            <h4 class="text-xl font-semibold mb-2">Harsha</h4>
+            <p class="text-gray-600">Software Engineer</p>
+          </div>
         </div>
-        <style>
-        /* Enhanced Team Section */
-        #team .team-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 32px 24px;
-        }
-        #team .team-card {
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 16px rgba(129,33,200,0.10);
-            padding: 36px 24px 28px 24px;
-            margin: 0 8px 16px 8px;
-            min-height: 260px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: box-shadow 0.3s, transform 0.3s;
-            position: relative;
-        }
-        #team .team-card:hover {
-            box-shadow: 0 8px 32px rgba(129,33,200,0.16);
-            transform: translateY(-6px) scale(1.04);
-        }
-        #team .team-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 18px;
-            font-size: 2.5rem;
-            color: #fff;
-            box-shadow: 0 2px 8px rgba(129,33,200,0.10);
-        }
-        #team .team-card h4 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        #team .team-card p {
-            color: #666;
-            font-size: 1.08rem;
-        }
-        @media (max-width: 900px) {
-            #team .team-cards {
-                flex-direction: column;
-                align-items: center;
-            }
-            #team .team-card {
-                max-width: 95vw;
-            }
-        }
-        </style>
-    </div>
+      </div>
+    </section>
 
     <!-- Locations Section -->
-    <div id="locations" class="section animate">
-        <div class="container">
-            <h2>Our Locations</h2>
-            <p>AI Human Mind operates globally with offices in key locations to serve clients across North America and Asia. Explore our offices below.</p>
-            <div class="row">
-                <!-- Vancouver Location -->
-                <div class="col-md-4">
-                    <div class="location-card animate">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h4>Vancouver, BC</h4>
-                        <p>Canada 🇨🇦</p>
-                        <span>Headquarters</span>
-                    </div>
-                </div>
-                <!-- Seattle Location -->
-                <div class="col-md-4">
-                    <div class="location-card animate">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h4>Seattle, Washington</h4>
-                        <p>USA 🇺🇸</p>
-                        <span>North America</span>
-                    </div>
-                </div>
-                <!-- Hyderabad Location -->
-                <div class="col-md-4">
-                    <div class="location-card animate">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h4>Hyderabad, Telangana</h4>
-                        <p>India 🇮🇳</p>
-                        <span>Asia-Pacific</span>
-                    </div>
-                </div>
-            </div>
+    <section id="locations" class="py-20 bg-gray-100 animate">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-8 font-montserrat">Our Locations</h2>
+        <p class="text-gray-700 max-w-2xl mx-auto mb-12 font-inter">AI Human Mind operates globally with offices in key locations to serve clients across North America and Asia. Explore our offices below.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 location-card animate">
+            <i class="fas fa-map-marker-alt text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">Vancouver, BC</h4>
+            <p class="text-gray-600">Canada 🇨🇦</p>
+            <span class="block text-gray-800 font-medium text-base">Headquarters</span>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 location-card animate">
+            <i class="fas fa-map-marker-alt text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">Seattle, Washington</h4>
+            <p class="text-gray-600">USA 🇺🇸</p>
+            <span class="block text-gray-800 font-medium text-base">North America</span>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-2 location-card animate">
+            <i class="fas fa-map-marker-alt text-4xl text-orange-400 mb-4"></i>
+            <h4 class="text-xl font-semibold mb-2">Hyderabad, Telangana</h4>
+            <p class="text-gray-600">India 🇮🇳</p>
+            <span class="block text-gray-800 font-medium text-base">Asia-Pacific</span>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
     <!-- Contact Section -->
-    <div id="contact" class="section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or want to know more about AI Human Mind, feel free to reach out via social media or contact us directly through our email at <a href="mailto:info@aihumanmind.com">info@aihumanmind.com</a>.</p>
-        </div>
-    </div>
+    <section id="contact" class="py-20 bg-gray-50 animate">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-8 font-montserrat">Contact Us</h2>
+        <p class="text-gray-700 max-w-2xl mx-auto mb-4 font-inter">If you have any questions or want to know more about AI Human Mind, feel free to reach out via social media or contact us directly through our email at <a href="mailto:info@aihumanmind.com" class="text-orange-500 underline">info@aihumanmind.com</a>.</p>
+      </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer text-center">
-        <div class="container">
-            <ul class="social-links">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.linkedin.com/company/ai-human-mind/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-            <p>&copy; 2024 AI Human Mind. All Rights Reserved.</p>
-        </div>
+    <footer class="bg-gradient-to-r from-purple-700 to-orange-400 text-white py-6 text-center mt-8">
+      <div class="container mx-auto px-4">
+        <ul class="flex justify-center space-x-6 mb-2">
+          <li><a href="#" class="hover:text-orange-200 text-xl"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#" class="hover:text-orange-200 text-xl"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/ai-human-mind/" target="_blank" class="hover:text-orange-200 text-xl"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="#" class="hover:text-orange-200 text-xl"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+        <p class="mb-0">&copy; 2024 AI Human Mind. All Rights Reserved.</p>
+      </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+    <button id="backToTop" title="Back to Top" class="hidden fixed bottom-10 right-10 z-50 bg-gradient-to-br from-purple-700 to-orange-400 text-white rounded-full w-12 h-12 text-2xl shadow-lg hover:from-orange-400 hover:to-purple-700 transition-all duration-200 flex items-center justify-center"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function(){
-            // Add smooth scrolling to all links
-            $(".nav-link, .btn").on('click', function(event) {
-    
-                // Make sure this.hash has a value before overriding default behavior
-                if (this.hash !== "") {
-                    // Prevent default anchor click behavior
-                    event.preventDefault();
-    
-                    // Store hash
-                    var hash = this.hash;
-    
-                    // Calculate offset for fixed navbar
-                    var navbarHeight = $('.navbar').outerHeight();
-                    var extraOffset = 20; // This helps to prevent cutting off any content
-    
-                    // Close the navbar if it's open in mobile view
-                    if($('.navbar-toggler').attr('aria-expanded') === 'true') {
-                        $('.navbar-collapse').collapse('hide');
-                    }
-    
-                    // Using jQuery's animate() method to add smooth page scroll
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top - navbarHeight - extraOffset // Adjust scroll position by navbar height and extra buffer
-                    }, 800, function(){
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                }
-            });
-    
-            // Ensure the navbar is properly collapsed after clicking a link on mobile
-            $('.navbar-nav>li>a').on('click', function(){
-                $('.navbar-collapse').collapse('hide');
-            });
-
-            // Navbar shadow and color on scroll
-            $(window).on('scroll', function() {
-                if($(window).scrollTop() > 60) {
-                    $('.navbar').addClass('scrolled');
-                } else {
-                    $('.navbar').removeClass('scrolled');
-                }
-            });
-
-            // Back to Top button logic
-            var backToTop = $('#backToTop');
-            $(window).on('scroll', function() {
-                if($(window).scrollTop() > 300) {
-                    backToTop.fadeIn();
-                } else {
-                    backToTop.fadeOut();
-                }
-            });
-            backToTop.on('click', function() {
-                $('html, body').animate({scrollTop: 0}, 700);
-            });
-
-            // Animated scroll effects
-            function revealOnScroll() {
-                $('.animate').each(function(){
-                    var elemTop = $(this).offset().top;
-                    var winBottom = $(window).scrollTop() + $(window).height() - 60;
-                    if(elemTop < winBottom) {
-                        $(this).addClass('visible');
-                    }
-                });
-            }
-            $(window).on('scroll resize', revealOnScroll);
-            revealOnScroll();
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href.length > 1 && document.querySelector(href)) {
+            e.preventDefault();
+            const offset = document.querySelector('nav').offsetHeight + 20;
+            const top = document.querySelector(href).getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
         });
-    </script> 
+      });
+      // Back to Top button logic
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if(window.scrollY > 300) {
+          backToTop.classList.remove('hidden');
+          backToTop.classList.add('flex');
+        } else {
+          backToTop.classList.add('hidden');
+          backToTop.classList.remove('flex');
+        }
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      // Animate on scroll
+      function revealOnScroll() {
+        document.querySelectorAll('.animate').forEach(el => {
+          const elemTop = el.getBoundingClientRect().top + window.scrollY;
+          const winBottom = window.scrollY + window.innerHeight - 60;
+          if(elemTop < winBottom) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('resize', revealOnScroll);
+      revealOnScroll();
+    </script>
 </body>
 </html>
