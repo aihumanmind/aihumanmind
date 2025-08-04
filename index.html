@@ -20,19 +20,18 @@
         
         /* Navbar */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             padding: 15px 0;
             position: fixed;
             width: 100%;
             z-index: 1000;
-            transition: background-color 0.3s ease;
+            transition: background 0.3s ease;
         }
 
         .navbar-brand {
             font-size: 1.75rem;
-            color: #8121c8;
+            color: #fff;
             font-family: 'Font Awesome 5 Brands';
         }
 
@@ -40,25 +39,28 @@
             max-height: 50px;
         }
 
-        .navbar-nav .nav-link {
-            font-size: 1.1rem;
-            padding: 0.5rem 1.5rem;
-            color: #333;
-            font-weight: 500;
+        .navbar .navbar-nav .nav-link {
+            color: #fff;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: #ff7043;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-toggler-icon {
-            height: 1em;
+        .navbar .navbar-nav .nav-link:hover {
+            color: #ffd6c1;
         }
 
         .navbar-toggler {
             font-size: 1.75rem;
+            color: #fff;
         }
+
+        .navbar-toggler .fas.fa-bars {
+            color: #fff !important;
+        }
+
+        .navbar-toggler-icon {
+            height: 1em;
+            color: #fff;
+        }
+
         .navbar .container{
             justify-content: center;
         }
@@ -81,6 +83,7 @@
             color: #fff;
             position: relative;
             margin-bottom: 0;
+            margin-top: 80px; /* Adjust this value to match your navbar height */
         }
 
         .jumbotron h1 {
@@ -422,7 +425,7 @@
 
         /* Navbar shadow and color on scroll */
         .navbar.scrolled {
-            background-color: #fff !important;
+            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%) !important;
             box-shadow: 0 4px 24px rgba(129,33,200,0.08);
         }
 
@@ -552,6 +555,7 @@
             .jumbotron {
                 height: auto !important;
                 padding: 60px 0 40px 0 !important;
+                margin-top: 60px !important;
             }
             .navbar {
                 padding: 8px 0 !important;
@@ -671,6 +675,7 @@
             .jumbotron {
                 height: auto !important;
                 padding: 48px 0 32px 0 !important;
+                margin-top: 60px !important;
             }
             .navbar {
                 padding: 8px 0 !important;
@@ -1123,22 +1128,6 @@
                     <div class="team-card">
                         <img class="team-avatar" src="https://static.vecteezy.com/system/resources/thumbnails/059/036/250/small_2x/illustration-of-a-young-man-smiling-with-glasses-and-orange-shirt-png.png" alt="Harsha">
                         <h4>Harsha</h4>
-                        <p>Software Engineer</p>
-                    </div>
-                </div>
-                <!-- Team Member 4 -->
-                <div class="col-md-3 col-sm-6 team-member animate">
-                    <div class="team-card">
-                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/thumbnails/059/036/250/small_2x/illustration-of-a-young-man-smiling-with-glasses-and-orange-shirt-png.png" alt="Udaykiran">
-                        <h4>Udaykiran</h4>
-                        <p>Software Engineer</p>
-                    </div>
-                </div>
-                <!-- Team Member 5 -->
-                <div class="col-md-3 col-sm-6 team-member animate">
-                    <div class="team-card">
-                        <img class="team-avatar" src="https://static.vecteezy.com/system/resources/thumbnails/059/036/250/small_2x/illustration-of-a-young-man-smiling-with-glasses-and-orange-shirt-png.png" alt="Nazeer Ahmed">
-                        <h4>Nazeer</h4>
                         <p>Software Engineer</p>
                     </div>
                 </div>
