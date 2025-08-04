@@ -767,6 +767,53 @@ url('https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI_HUMAN_M
         .about-item, .service-card, .location-card, .ai-card, .case-card, .team-card {
             backdrop-filter: blur(4px);
         }
+
+        @media (max-width: 900px) {
+            #ai-tech .ai-tech-cards {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                gap: 16px !important;
+                overflow-x: hidden !important;
+                flex-wrap: nowrap !important;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 8px;
+                width: max-content;
+                min-width: 100vw;
+                animation: aiTechScroll 30s linear infinite;
+                white-space: nowrap;
+                /* Optional: fade edges for premium look */
+                mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            }
+            #ai-tech .ai-tech-card {
+                min-width: 120px !important;
+                max-width: 140px !important;
+                flex: 0 0 auto !important;
+                margin: 0 8px 0 0 !important;
+            }
+            @keyframes aiTechScroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+        @media (max-width: 600px) {
+            #ai-tech .ai-tech-cards {
+                gap: 10px !important;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            #ai-tech .ai-tech-card {
+                min-width: 110px !important;
+                max-width: 120px !important;
+                padding: 14px 6px 10px 6px !important;
+            }
+        }
+
+        .ai-tech-dup { display: none; }
+        @media (max-width: 900px) {
+            .ai-tech-dup { display: contents; }
+        }
     </style>
 </head>
 <body>
@@ -907,7 +954,7 @@ url('https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI_HUMAN_M
                 </div>
                 <div class="ai-tech-card animate">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Android (Kotlin)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>Android (Kotlin)</span>
+                    <span>Android</span>
                 </div>
                 <div class="ai-tech-card animate">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
@@ -920,6 +967,59 @@ url('https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI_HUMAN_M
                 <div class="ai-tech-card animate">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="height:48px;width:48px;margin-bottom:14px;object-fit:contain;">
                     <span>OpenAI</span>
+                </div>
+                <!-- Duplicated for infinite scroll, only visible on mobile -->
+                <div class="ai-tech-dup">
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>Python</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>PyTorch</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>TypeScript</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <i class="fab fa-aws" style="display:none;color:#ff9900;font-size:2.2rem;"></i>
+                        <span>AWS AI</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <i class="fab fa-google" style="display:none;color:#4285F4;font-size:2.2rem;"></i>
+                        <span>GCP AI</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="iOS (Swift)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>iOS (Swift)</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Android (Kotlin)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>Android (Kotlin)</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>Flutter</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>React Native</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="height:48px;width:48px;margin-bottom:14px;object-fit:contain;">
+                        <span>OpenAI</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -966,11 +1066,43 @@ url('https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI_HUMAN_M
         }
         @media (max-width: 900px) {
             #ai-tech .ai-tech-cards {
-                flex-direction: column;
-                align-items: center;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                gap: 16px !important;
+                overflow-x: hidden !important;
+                flex-wrap: nowrap !important;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 8px;
+                width: max-content;
+                min-width: 100vw;
+                animation: aiTechScroll 30s linear infinite;
+                white-space: nowrap;
+                /* Optional: fade edges for premium look */
+                mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
             }
             #ai-tech .ai-tech-card {
-                max-width: 95vw;
+                min-width: 120px !important;
+                max-width: 140px !important;
+                flex: 0 0 auto !important;
+                margin: 0 8px 0 0 !important;
+            }
+            @keyframes aiTechScroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+        @media (max-width: 600px) {
+            #ai-tech .ai-tech-cards {
+                gap: 10px !important;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            #ai-tech .ai-tech-card {
+                min-width: 110px !important;
+                max-width: 120px !important;
+                padding: 14px 6px 10px 6px !important;
             }
         }
         </style>
