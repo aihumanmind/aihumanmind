@@ -8,20 +8,21 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts: Inter, Poppins, Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: 'Inter', 'Poppins', 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f7f8fa 0%, #e9e6f7 100%);
+            color: #23223a;
+            letter-spacing: 0.01em;
         }
         
         /* Navbar */
         .navbar {
             background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 24px rgba(129,33,200,0.08);
             padding: 15px 0;
             position: fixed;
             width: 100%;
@@ -30,9 +31,10 @@
         }
 
         .navbar-brand {
-            font-size: 1.75rem;
+            font-family: 'Montserrat', 'Poppins', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
             color: #fff;
-            font-family: 'Font Awesome 5 Brands';
             display: flex;
             align-items: center;
             gap: 30px;
@@ -44,10 +46,14 @@
 
         .navbar .navbar-nav .nav-link {
             color: #fff;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            transition: color 0.2s;
         }
 
         .navbar .navbar-nav .nav-link:hover {
             color: #ffd6c1;
+            text-shadow: 0 2px 8px #8121c8;
         }
 
         .navbar-toggler {
@@ -75,45 +81,54 @@
         /* Jumbotron */
         .jumbotron {
             background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), 
-                              url('https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI_HUMAN_MIND-bg.png');
+url('https://raw.githubusercontent.com/vivekshiva4/aihumanmind/master/AI_HUMAN_MIND-bg.png');
             background-size: cover;
             background-position: center;
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(36,18,56,0.10);
             height: 75vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #fff;
             position: relative;
             margin-bottom: 0;
             margin-top: 80px; /* Adjust this value to match your navbar height */
         }
 
         .jumbotron h1 {
+            font-family: 'Montserrat', 'Poppins', sans-serif;
             font-size: 4rem;
-            font-weight: 700;
-            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 24px #8121c8;
             margin-bottom: 1rem;
-            letter-spacing: 2px;
         }
 
         .jumbotron p.lead {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            color: #f3e7fd;
+            font-family: 'Inter', sans-serif;
             margin-bottom: 2rem;
         }
 
         .jumbotron .btn {
+            background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 4px 16px rgba(129,33,200,0.13);
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
             font-size: 1.2rem;
             padding: 0.75rem 1.5rem;
             border-radius: 25px;
-            background-color: #ff7043;
-            color: white;
-            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .jumbotron .btn:hover {
-            background-color: #ff5733;
-            transform: translateY(-3px);
+            background: linear-gradient(90deg, #ff7043 0%, #8121c8 100%);
+            box-shadow: 0 8px 32px rgba(129,33,200,0.18);
+            transform: translateY(-2px) scale(1.04);
         }
 
         /* Section Styling */
@@ -124,16 +139,16 @@
         }
 
         .section h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
+            font-family: 'Montserrat', 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #8121c8;
+            letter-spacing: 1.5px;
             margin-bottom: 2.5rem;
         }
 
-        .section p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            color: #666;
+        .section p, .card-text, .team-card p, .location-card p {
+            color: #4a4666;
+            font-family: 'Inter', sans-serif;
         }
 
         #team {
@@ -364,6 +379,8 @@
         .footer {
             background: linear-gradient(90deg, #8121c8 0%, #ff7043 100%);
             color: #fff;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 -4px 24px rgba(129,33,200,0.10);
             padding: 20px 0;
             text-align: center;
         }
@@ -380,12 +397,13 @@
 
         .footer ul li a {
             color: #fff;
-            transition: color 0.3s, transform 0.3s;
+            font-size: 1.4rem;
+            transition: color 0.2s, transform 0.2s;
         }
 
         .footer ul li a:hover {
-            color: #ffd6c1;
-            transform: scale(1.2) rotate(-8deg);
+            color: #ff7043;
+            transform: scale(1.18) rotate(-6deg);
         }
 
         .footer p {
@@ -745,6 +763,57 @@
             box-shadow: 0 12px 32px 0 rgba(129,33,200,0.22), 0 2px 8px 0 rgba(255,112,67,0.13);
             border-color: #ff7043;
         }
+        /* Glassmorphism for cards */
+        .about-item, .service-card, .location-card, .ai-card, .case-card, .team-card {
+            backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 900px) {
+            #ai-tech .ai-tech-cards {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                gap: 16px !important;
+                overflow-x: hidden !important;
+                flex-wrap: nowrap !important;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 8px;
+                width: max-content;
+                min-width: 100vw;
+                animation: aiTechScroll 30s linear infinite;
+                white-space: nowrap;
+                /* Optional: fade edges for premium look */
+                mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            }
+            #ai-tech .ai-tech-card {
+                min-width: 120px !important;
+                max-width: 140px !important;
+                flex: 0 0 auto !important;
+                margin: 0 8px 0 0 !important;
+            }
+            @keyframes aiTechScroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+        @media (max-width: 600px) {
+            #ai-tech .ai-tech-cards {
+                gap: 10px !important;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            #ai-tech .ai-tech-card {
+                min-width: 110px !important;
+                max-width: 120px !important;
+                padding: 14px 6px 10px 6px !important;
+            }
+        }
+
+        .ai-tech-dup { display: none; }
+        @media (max-width: 900px) {
+            .ai-tech-dup { display: contents; }
+        }
     </style>
 </head>
 <body>
@@ -885,7 +954,7 @@
                 </div>
                 <div class="ai-tech-card animate">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Android (Kotlin)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-                    <span>Android (Kotlin)</span>
+                    <span>Android</span>
                 </div>
                 <div class="ai-tech-card animate">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
@@ -898,6 +967,59 @@
                 <div class="ai-tech-card animate">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="height:48px;width:48px;margin-bottom:14px;object-fit:contain;">
                     <span>OpenAI</span>
+                </div>
+                <!-- Duplicated for infinite scroll, only visible on mobile -->
+                <div class="ai-tech-dup">
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>Python</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>PyTorch</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>TypeScript</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <i class="fab fa-aws" style="display:none;color:#ff9900;font-size:2.2rem;"></i>
+                        <span>AWS AI</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP AI" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <i class="fab fa-google" style="display:none;color:#4285F4;font-size:2.2rem;"></i>
+                        <span>GCP AI</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="iOS (Swift)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>iOS (Swift)</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Android (Kotlin)" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>Android (Kotlin)</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>Flutter</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+                        <span>React Native</span>
+                    </div>
+                    <div class="ai-tech-card animate">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="height:48px;width:48px;margin-bottom:14px;object-fit:contain;">
+                        <span>OpenAI</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -944,11 +1066,43 @@
         }
         @media (max-width: 900px) {
             #ai-tech .ai-tech-cards {
-                flex-direction: column;
-                align-items: center;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                gap: 16px !important;
+                overflow-x: hidden !important;
+                flex-wrap: nowrap !important;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 8px;
+                width: max-content;
+                min-width: 100vw;
+                animation: aiTechScroll 30s linear infinite;
+                white-space: nowrap;
+                /* Optional: fade edges for premium look */
+                mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
             }
             #ai-tech .ai-tech-card {
-                max-width: 95vw;
+                min-width: 120px !important;
+                max-width: 140px !important;
+                flex: 0 0 auto !important;
+                margin: 0 8px 0 0 !important;
+            }
+            @keyframes aiTechScroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+        @media (max-width: 600px) {
+            #ai-tech .ai-tech-cards {
+                gap: 10px !important;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            #ai-tech .ai-tech-card {
+                min-width: 110px !important;
+                max-width: 120px !important;
+                padding: 14px 6px 10px 6px !important;
             }
         }
         </style>
